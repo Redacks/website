@@ -1,0 +1,28 @@
+{
+	"name": "redacks",
+	"type": "module",
+	"version": "0.0.1",
+	"scripts": {
+		"dev": "astro dev",
+		"devHost": "astro dev --host",
+		"start": "astro dev",
+		"build": "astro build",
+		"preview": "astro preview",
+		"astro": "astro",
+		"deployBeta": "npm run build && firebase hosting:channel:deploy beta",
+		"deploy": "CHOICE /C YNC /M \"Deploy to Firebase?!\" & npm run build && firebase deploy"
+	},
+	"dependencies": {
+		"@astrojs/tailwind": "^3.0.1",
+		"astro": "^2.0.13",
+		"astro-icon": "^0.8.0",
+		"astro-robots-txt": "^0.5.0",
+		"astro-sitemap": "^0.6.0",
+		"flowbite": "^1.6.3",
+		"tailwindcss": "^3.2.7"
+	},
+	"devDependencies": {
+		"prettier": "^2.8.4",
+		"prettier-plugin-astro": "^0.8.0"
+	}
+}

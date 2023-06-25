@@ -1,0 +1,90 @@
+---
+import Footer from "../components/Footer.astro";
+import Navbar from "../components/Navbar.astro";
+import "./global.css";
+
+export interface Props {
+	titleDe: string;
+	titleEn: string;
+	descEn: string;
+	descDe: string;
+	keywordsEn: string;
+	keywordsDe: string;
+	index: boolean;
+}
+
+const { titleDe, titleEn, index, keywordsDe, keywordsEn, descDe, descEn } =
+	Astro.props;
+let { lang } = Astro.params;
+
+lang = lang || "de";
+
+function generateNewUrl(lang: string) {
+	let urlSplit = Astro.url.pathname.split("/");
+	urlSplit[1] = lang;
+	return new URL(urlSplit.join("/"), Astro.url);
+}
+---
+
+<!DOCTYPE html>
+<html lang={lang}>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{lang == "de" ? titleDe : titleEn}</title>
+		<link rel="alternate" hreflang="en" href={generateNewUrl("en")} />
+		<link rel="alternate" hreflang="de" href={generateNewUrl("de")} />
+		{
+			Astro.url.pathname == "/" && (
+				<>
+					<link
+						rel="alternate"
+						hreflang="de"
+						href={generateNewUrl("")}
+					/>
+					<link rel="canonical" href={generateNewUrl("de")} />
+				</>
+			)
+		}
+		<link
+			rel="alternate"
+			hreflang="x-default"
+			href={generateNewUrl("de")}
+		/>
+		<meta name="description" content={lang == "de" ? descDe : descEn} />
+		<meta
+			name="keywords"
+			content={lang == "de" ? keywordsDe : keywordsEn}
+		/>
+		{!index && <meta name="robots" content="noindex" />}
+		<link
+			rel="apple-touch-icon"
+			sizes="180x180"
+			href="/apple-touch-icon.png"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="32x32"
+			href="/favicon-32x32.png"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="16x16"
+			href="/favicon-16x16.png"
+		/>
+		<link rel="manifest" href="/site.webmanifest" />
+		<meta property="og:title" content="Niklas Ahlers | Redacks" />
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="https://www.redacks.com/" />
+		<meta property="og:image" content="https://www.redacks.com/icon.png" />
+	</head>
+	<body class="bg-primary min-h-screen w-full flex flex-col m-0">
+		<Navbar />
+		<slot />
+		<div class="flex-1"></div>
+		<Footer />
+	</body>
+</html>
