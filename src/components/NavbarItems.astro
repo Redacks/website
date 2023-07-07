@@ -15,11 +15,7 @@ lang = lang || "de";
 	<a
 		href={"/" + lang + "/" + (link == "/" ? "" : link)}
 		class={`lg:text-xl text-3xl font-inter font-semibold group-hover:border-b-2 lg:py-2 py-1 border-[#00d8f9] group-hover:py-1 transition-[padding-top,padding-bottom] cursor-pointer ${
-			(
-				link == ""
-					? pathname.match(new RegExp(`.*\/$`))
-					: pathname.match(new RegExp(`.*[en,de]?\/${link}[\/]?$`))
-			)
+			pathname.match(new RegExp(`^\/?(de|en)?\/${link}?\/?$`))
 				? "border-b-2"
 				: ""
 		}`}
