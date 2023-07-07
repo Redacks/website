@@ -1,0 +1,62 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import ProfileIcon from "/icon.png";
+
+export async function getStaticPaths() {
+	return [{ params: { lang: "de" } }, { params: { lang: "en" } }];
+}
+
+let { lang } = Astro.params;
+lang = lang || "de";
+---
+
+<Layout
+	titleDe="Niklas Ahlers - Impressum und Kontakt"
+	titleEn="Niklas Ahlers - Imprint and contact"
+	index={true}
+	keywordsEn="Imprint, Contact, Redacks, Niklas Ahlers, Kissing, email, E-Mail, address"
+	keywordsDe="Impressum, Kontakt, Redacks, Niklas Ahlers, Email, E-Mail, Adresse, Kissing"
+	descEn="Niklas Ahlers | E-Mail: admin@redacks.com"
+	descDe="Niklas Ahlers | E-Mail: admin@redacks.com"
+>
+	<main
+		class="w-full pb-10 overflow-clip flex flex-col items-center animate-fadeIn"
+	>
+		<div
+			class="bg-gradient-to-br to-customBlue from-customPurple mx-4 rounded-xl mt-10 shadow-xl shadow-black"
+		>
+			<div
+				class="flex flex-col items-center p-4 px-10 bg-black bg-opacity-20"
+			>
+				<h1
+					class="text-white lg:text-6xl md:text-4xl text-4xl font-grotesque font-extrabold"
+				>
+					Impressum
+				</h1>
+				<img src={ProfileIcon} class="rounded-full mt-2 md:h-24 h-20" />
+				<span
+					class="text-white lg:text-4xl md:text-3xl text-2xl font-grotesque font-extrabold"
+					>Niklas Ahlers</span
+				>
+				<span
+					class="text-white lg:text-4xl md:text-3xl text-2xl font-grotesque font-extrabold"
+					>(Redacks)</span
+				>
+				<span
+					class="text-white lg:text-xl md:text-lg sm:text-base text-sm flex flex-col items-center md:pt-3 pt-2"
+				>
+					<a
+						href="mailto:admin@redacks.com"
+						class="underline"
+						title="Email me!">admin@redacks.com</a
+					>
+				</span>
+				<span
+					class="text-white lg:text-xl md:text-lg sm:text-base text-sm flex flex-col items-center py-3 text-center"
+				>
+					86438 Kissing | Kalkofenstraße 15a | Germany
+				</span>
+			</div>
+		</div>
+	</main>
+</Layout>

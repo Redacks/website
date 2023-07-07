@@ -1,0 +1,27 @@
+---
+export interface Props {
+    titleDe: string;
+    titleEn: string;
+    bg: string;
+    gridLayout?: string;
+}
+let { lang } = Astro.params;
+lang = lang || "de";
+const { titleDe, titleEn, bg, gridLayout } = Astro.props;
+---
+
+<div class:list={["flex flex-col md:gap-5 gap-2", gridLayout]}>
+    <span
+        class="text-white lg:text-5xl md:text-3xl text-2xl font-grotesque font-extrabold text-center"
+    >
+        {lang == "de" ? titleDe : titleEn}
+    </span>
+    <div
+        class:list={[
+            "xl:bg-gradient-to-r bg-gradient-to-b rounded-lg shadow-xl shadow-black flex-col flex first:border-t-0 last:border-b-0",
+            bg,
+        ]}
+    >
+        <slot />
+    </div>
+</div>

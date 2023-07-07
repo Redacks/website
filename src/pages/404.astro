@@ -1,0 +1,34 @@
+---
+import Footer from "../components/Footer.astro";
+import Navbar from "../components/Navbar.astro";
+import Layout from "../layouts/Layout.astro";
+
+export async function getStaticPaths() {
+	return [{ params: { lang: "de" } }, { params: { lang: "en" } }];
+}
+---
+
+<Layout
+	titleDe="Niklas Ahlers - 404"
+	titleEn="Niklas Ahlers - 404"
+	index={false}
+	keywordsEn=""
+	keywordsDe=""
+	descEn="404 - Page"
+	descDe="404 - Seite"
+>
+	<main class="w-full flex items-center flex-col">
+		<span
+			class="text-white text-[200px] font-grotesque font-extrabold text-transparent bg-clip-text bg-gradient-to-tr from-customBlue to-customPurple"
+		>
+			404
+		</span>
+		<span
+			class="text-white text-7xl text-center font-grotesque font-semibold -translate-y-12"
+			>PAGE NOT FOUND</span
+		>
+		<span class="text-gray-400 text-md -translate-y-8">
+			The requested page does not exist or got deleted
+		</span>
+	</main>
+</Layout>

@@ -1,0 +1,18 @@
+---
+export interface Props {
+	noTopMargin?: boolean;
+	fadeIn?: boolean;
+}
+const { noTopMargin, fadeIn } = Astro.props;
+---
+
+<div
+	class:list={["w-full xl:px-20 md:px-10 px-5", { "animate-fadeIn": fadeIn }]}
+>
+	<div
+		class={noTopMargin
+			? "bg-gradient-to-r from-customBlue to-customPurple h-[2px]"
+			: "bg-gradient-to-r from-customBlue to-customPurple mt-10 h-[2px]"}
+	>
+	</div>
+</div>

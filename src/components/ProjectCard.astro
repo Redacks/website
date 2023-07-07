@@ -1,0 +1,66 @@
+---
+import { Icon } from "astro-icon";
+
+export interface Props {
+	textEn?: string;
+	textDe?: string;
+	link?: string;
+	linkTextDe?: string;
+	linkTextEn?: string;
+	titleDe?: string;
+	titleEn?: string;
+	imageLink: string;
+}
+
+const {
+	textDe,
+	textEn,
+	link,
+	linkTextDe,
+	linkTextEn,
+	titleDe,
+	titleEn,
+	imageLink,
+} = Astro.props;
+
+let { lang } = Astro.params;
+lang = lang || "de";
+---
+
+<article
+	class="w-full md:p-2 sm:p-4 p-1 relative after:hidden after:-top-[3px] after:-bottom-[3px] after:-left-[3px] after:-right-[3px] after:bg-gradient-to-tr after:from-customPurple after:to-customBlue after:content-[''] after:z-[-1] after:rounded-xl bg-primary rounded-xl text-white text-xl flex flex-col mb-6 animate-fadeIn"
+>
+	<span
+		class="text-white lg:text-5xl md:text-3xl text-2xl font-grotesque font-extrabold xl:mb-8 md:mb-6 mb-2 text-center"
+	>
+		{lang == "de" ? titleDe : titleEn}
+	</span>
+	<div class="xl:px-2 md:px-4 px-2 w-full flex flex-col">
+		<img
+			src={imageLink}
+			class="px-4 sm:px-0 2xl:max-h-[30vh] lg:max-h[20vh] md:max-h-[30vh] max-h-[30vh] object-contain"
+		/>
+
+		<span
+			class:list={[
+				"mx-1 text-gray-400 md:text-lg sm:text-base text-sm",
+				imageLink ? "mt-4 " : "mt-0",
+			]}>{lang == "en" ? textEn : textDe}</span
+		>
+		{
+			(lang == "de" ? linkTextDe : linkTextEn) ? (
+				<a
+					href={link}
+					target="_blank"
+					class="underline mt-2 lg:text-xl md:text-lg sm:text-base text-sm"
+				>
+					<Icon
+						name="mdi:external-link"
+						class="h-[20px] inline-block"
+					/>
+					{lang == "de" ? linkTextDe : linkTextEn}
+				</a>
+			) : null
+		}
+	</div>
+</article>

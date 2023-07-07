@@ -1,0 +1,166 @@
+---
+import Footer from "../../components/Footer.astro";
+import Navbar from "../../components/Navbar.astro";
+import TitleDescButtonCard from "../../components/main/TitleDescButtonCard.astro";
+import Layout from "../../layouts/Layout.astro";
+
+import HelloWorldImg from "/helloWorld.png";
+import GitStatusImg from "/upToDate.png";
+import BruteforceImg from "/bruteforce.png";
+
+export async function getStaticPaths() {
+	return [{ params: { lang: "de" } }, { params: { lang: "en" } }];
+}
+
+let { lang } = Astro.params;
+lang = lang || "de";
+---
+
+<Layout
+	titleDe="Niklas Ahlers (Redacks) - Fullstack Software Entwickler"
+	titleEn="Niklas Ahlers (Redacks) - Fullstack Software Developer"
+	index={true}
+	keywordsEn="Redacks, Niklas, Ahlers, Code, Website, Kissing, Baveria, Germany, Software, Developer,ideas "
+	keywordsDe="Redacks, Niklas, Ahlers, entwickeln, Webseite, Kissing, Bayern, Deutschland, Software, Entwickler, entwickeln, Ideen"
+	descEn="Hey, I'am Niklas Ahlers! I am coding since 2017 as a hobby. Have fun checking out my website!"
+	descDe="Hey, ich bin Niklas Ahlers! Ich programmiere seit 2017 als Hobby. Viel Spaß beim erkunden meiner Webseite!"
+>
+	<main class="w-full pb-10 overflow-clip">
+		<TitleDescButtonCard
+			titleDe="Lasst uns die Zukunft mit den Grenzen unserer Vorstellung entwickeln!"
+			titleEn="Code gives you the power to build and change the future with your imagination!"
+			buttonTextDe="Zu meinen Projekten >"
+			buttonTextEn="Go to projects >"
+			buttonLink="projects"
+			align="left"
+			isH1
+		>
+			<span slot="descDe">
+				Hey, ich bin Niklas Ahlers! Ich habe Programmieren 2017 als
+				Hobby in der Schule angefangen und habe seitdem in verscheidenen
+				Bereichen Expertise gesammelt.
+				<br />
+
+				Ich habe bereits an verschiedenen Projekten in verschiedenen
+				Programmiersprachen gearbeitet und dabei eine Menge Skills
+				erlernt.
+				<br /><br />
+				Aktuell arbeite ich in der Firma
+				<a
+					href="http://www.tlb-engineering.de/"
+					class="underline"
+					target="_blank"
+				>
+					TLB Engineering
+				</a>
+				und habe frisch mein Abitur geschafft.
+				<br />
+				Erkunden Sie gerne meine Projekte und kontaktieren Sie mich gerne
+				bei Fragen oder aus anderen Gründen.
+			</span>
+			<span slot="descEn">
+				Hey, I am Niklas Ahlers! I am coding as a hobby. I started
+				programming 2017 in school and continued to learn by my own
+				since then.
+				<br />
+				I worked on many projects in a lot of different languages and thus
+				learned quite a few technical skills.
+				<br />
+				Currently I am working at
+				<a
+					href="http://www.tlb-engineering.de/"
+					class="underline"
+					target="_blank"
+				>
+					TLB Engineering
+				</a>
+				and just finished school.
+				<br />
+				Fell free to explore my projects and to contact me for any questions
+				or other regards.
+			</span>
+			<img
+				slot="extraContent"
+				src={HelloWorldImg}
+				alt="Hello World Bash"
+				class="rounded-md shadow-lg shadow-black"
+				title="Hello World Bash"
+			/>
+		</TitleDescButtonCard>
+		<TitleDescButtonCard
+			titleDe="Immer auf dem aktuellen technischen Stand!"
+			titleEn="Building the products of tomorrow!"
+			buttonTextDe="Zu meinen Skills >"
+			buttonTextEn="See my skills >"
+			buttonLink="skills"
+			align="right"
+		>
+			<span slot="descDe">
+				Die Technologie entwickelt sich jeden Tag weiter und es ist
+				wichtig sich diesen Änderungen anzupassen, um auf dem aktuellem
+				Stand zu bleiben!
+				<br />
+				Ich versuche jederzeit neue Dinge zu erlernen und mich diesen Änderungen
+				anzupassen, um immer die neuste Technologien zu nutzen und auch diese
+				mit zu entwickeln.
+			</span>
+
+			<span slot="descEn">
+				Technology is constantly changing and evolving. Thats why its
+				important to always adapt to those changes and also be open to
+				learn new things.
+				<br />I am always trying to learn new things and try to keep up
+				to date to always go with the trend and create modern and fast
+				applications.
+			</span>
+			<img
+				slot="extraContent"
+				src={GitStatusImg}
+				alt="Always up to date git"
+				title="Always up to date git"
+				class="rounded-md shadow-lg shadow-black"
+			/>
+		</TitleDescButtonCard>
+		<TitleDescButtonCard
+			titleDe="Stehts verfügbar für neue Ideen!"
+			titleEn="Always there for your ideas!"
+			buttonTextDe="Zu meinem Impressum >"
+			buttonTextEn="My imprint >"
+			buttonLink="imprint"
+			align="left"
+		>
+			<span slot="descEn">
+				I'm happy to assist in the implementation or support of projects
+				upon request. I am always available for exciting projects and
+				I'm delighted to help bring them to life!
+				<br />
+				<br />
+				If you have a project in mind or would like to explore how we can
+				work together, I invite you to get in touch. Feel free to reach out
+				to me via my imprint. Let's connect and discuss how I can assist
+				you in turning your vision into a reality.
+			</span>
+
+			<span slot="descDe"
+				>Gerne stehe ich Ihnen auf Anfrage bei der Umsetzung oder
+				Unterstützung von Projekten zur Verfügung. Ich bin immer für
+				spannende Projekte verfügbar und freue mich, wenn ich dazu
+				beitragen kann, sie zum Leben zu erwecken!
+				<br />
+				<br />
+				Wenn Sie ein Projekt im Sinn haben oder in Erfahrung bringen möchten,
+				wie wir zusammenarbeiten können, können Sie sich gerne mit mir in
+				Verbindung zu setzen über die Kontaktinfos in meinem Impressum. Lassen
+				Sie uns in Kontakt treten und besprechen, wie ich Ihnen dabei helfen
+				kann, Ihre Vision in die Realität umzusetzen.
+			</span>
+			<img
+				slot="extraContent"
+				src={BruteforceImg}
+				alt="Bruteforcing Ideas"
+				title="Bruteforcing Ideas"
+				class="rounded-md shadow-lg shadow-black"
+			/>
+		</TitleDescButtonCard>
+	</main>
+</Layout>

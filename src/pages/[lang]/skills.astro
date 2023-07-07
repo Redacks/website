@@ -1,0 +1,250 @@
+---
+import SkillListContainer from "../../components/SkillListContainer.astro";
+import SkillListItem from "../../components/SkillListItem.astro";
+import TitleDescButtonCard from "../../components/main/TitleDescButtonCard.astro";
+import Layout from "../../layouts/Layout.astro";
+
+export async function getStaticPaths() {
+	return [{ params: { lang: "de" } }, { params: { lang: "en" } }];
+}
+
+let { lang } = Astro.params;
+lang = lang || "de";
+---
+
+<Layout
+	titleDe="Niklas Ahlers - Skills und Tools"
+	titleEn="Niklas Ahlers - Skills and Tools"
+	index={true}
+	keywordsEn="Redacks, Niklas Ahlers, Frameworks, Coding, Skills, Frontend, Backend, Embedded"
+	keywordsDe="Redacks, Niklas Ahlers, Frameworks, Coding, Frontend, Backend, Embedded, Tools"
+	descEn="Find out what i am good at and with which tools and frameworks I already worked!"
+	descDe="Hier findest du alle Tools und Frameworks mit denen ich bereits gearbeitet habe!"
+>
+	<main class="w-full pb-10 overflow-clip">
+		<h1
+			class="text-white lg:text-7xl md:text-5xl text-4xl font-grotesque font-extrabold w-full text-center xl:mt-28 md:mt-14 mt-7 md:mb-10 mb-5"
+		>
+			{lang == "de" ? "Meine Skills und Tools" : "My Skills and tools"}
+		</h1>
+		<div
+			class="grid xl:px-20 md:px-10 px-5 gap-4 animate-fadeIn 2xl:grid-cols-4 xl:grid-cols-3 grid-flow-dense md:grid-cols-2 grid-cols-1"
+		>
+			<SkillListContainer
+				titleDe="Frontend"
+				titleEn="Frontend"
+				bg="from-[#b133ff] to-[#7e64f4] md:from-[#b133ff] md:to-[#5987ec] xl:from-[#b133ff] xl:to-[#7e64f4]"
+				gridLayout="row-span-2"
+			>
+				<SkillListItem
+					iconName="typcn:html5"
+					since={new Date(2016, 7, 1)}
+					title="HTML"
+					desc="Webdesign, UIX"
+				/>
+				<SkillListItem
+					iconName="vscode-icons:file-type-js-official"
+					since={new Date(2017, 7, 1)}
+					title="Javascript"
+					desc="UI-Frameworks"
+				/>
+				<SkillListItem
+					iconName="vscode-icons:file-type-typescript-official"
+					since={new Date(2021, 5, 1)}
+					title="Typescript"
+					desc="UI-Frameworks"
+				/>
+				<SkillListItem
+					iconName="logos:css-3"
+					since={new Date(2016, 7, 1)}
+					title="CSS"
+					desc="Styling"
+				/>
+				<SkillListItem
+					iconName="vscode-icons:file-type-tailwind"
+					since={new Date(2021, 9, 1)}
+					title="TailwindCSS"
+					desc="Styling"
+				/>
+				<SkillListItem
+					iconName="logos:material-ui"
+					since={new Date(2021, 7, 1)}
+					title="MaterialUI"
+					desc="UI-Components"
+				/>
+				<SkillListItem
+					iconName="logos:react"
+					since={new Date(2021, 9, 1)}
+					title="React"
+					desc="UI-Framework"
+				/>
+				<SkillListItem
+					iconName="logos:astro"
+					since={new Date(2022, 2, 1)}
+					title="Astro"
+					desc="UI-Framework"
+				/>
+				<SkillListItem
+					iconName="logos:c-sharp"
+					since={new Date(2019, 4, 1)}
+					title="C#"
+					desc="WPF, Winforms"
+				/>
+				<SkillListItem
+					iconName="vscode-icons:file-type-wasm"
+					since={new Date(2023, 3, 1)}
+					title="WebAssembly"
+					desc="Rust"
+				/>
+			</SkillListContainer>
+
+			<SkillListContainer
+				titleDe="Backend"
+				titleEn="Backend"
+				bg="from-[#7e64f4] to-[#5987ec] md:from-[#b133ff] md:to-[#5987ec] xl:from-[#7e64f4] xl:to-[#5987ec]"
+				gridLayout="row-span-2"
+			>
+				<SkillListItem
+					iconName="vscode-icons:file-type-node"
+					since={new Date(2018, 9, 1)}
+					title="NodeJS"
+					desc="Backend, Servers"
+				/>
+				<SkillListItem
+					iconName="vscode-icons:file-type-typescript-official"
+					since={new Date(2021, 5, 1)}
+					title="Typescript"
+					desc="Backend, Servers"
+				/>
+				<SkillListItem
+					iconName="vscode-icons:file-type-mongo"
+					since={new Date(2021, 9, 1)}
+					title="MongoDB"
+					desc="Database"
+				/>
+				<SkillListItem
+					iconName="mdi:language-rust"
+					since={new Date(2023, 1, 1)}
+					title="Rust"
+					desc="OS, Server, UI-Backend"
+				/>
+				<SkillListItem
+					iconName="logos:c-sharp"
+					since={new Date(2019, 4, 1)}
+					title="C#"
+					desc="WPF, Drivers, Programms"
+				/>
+				<SkillListItem
+					iconName="vscode-icons:file-type-python"
+					since={new Date(2020, 4, 1)}
+					title="Python"
+					desc="AI, UI, Backend"
+				/>
+				<SkillListItem
+					iconName="logos:c-plusplus"
+					since={new Date(2021, 3, 1)}
+					title="C++"
+					desc="Programms, Simulations, Games"
+				/>
+				<SkillListItem
+					iconName="logos:java"
+					since={new Date(2018, 10, 1)}
+					title="Java"
+					desc="Minecraft, UI"
+				/>
+				<SkillListItem
+					iconName="vscode-icons:file-type-firebase"
+					since={new Date(2021, 8, 1)}
+					title="Firebase"
+					desc="Hosting"
+				/>
+				<SkillListItem
+					iconName="logos:cloudflare"
+					since={new Date(2021, 8, 1)}
+					title="Cloudflare"
+					desc="Hosting, DNS, Mail"
+				/>
+				<SkillListItem
+					iconName="logos:nextjs"
+					since={new Date(2021, 5, 1)}
+					title="Next.js"
+					desc="SSR"
+				/>
+			</SkillListContainer>
+
+			<SkillListContainer
+				titleDe="Embedded"
+				titleEn="Embedded"
+				bg="from-[#5987ec] to-[#26b7e1] md:from-[#5987ec] md:to-[#00dbd8] xl:from-[#5987ec] xl:to-[#26b7e1]"
+			>
+				<SkillListItem
+					iconName="logos:c-plusplus"
+					since={new Date(2021, 3, 1)}
+					title="C++"
+					desc=""
+				/>
+				<SkillListItem
+					iconName="mdi:language-rust"
+					since={new Date(2023, 1, 1)}
+					title="Rust"
+					desc="OS, Raspberrypi"
+				/>
+				<SkillListItem
+					iconName="vscode-icons:file-type-platformio"
+					since={new Date(2022, 6, 1)}
+					title="PlatformIO"
+					desc="Platform-Management"
+				/>
+				<SkillListItem
+					iconName="logos:arduino"
+					since={new Date(2020, 8, 1)}
+					title="Arduino"
+					desc="IDE"
+				/>
+			</SkillListContainer>
+
+			<SkillListContainer
+				titleDe="Sonstiges"
+				titleEn="Others"
+				bg="from-[#26b7e1] to-[#00dbd8] xl:from-[#5987ec] xl:to-[#26b7e1] md:from-[#5987ec] md:to-[#00dbd8] 2xl:from-[#26b7e1] 2xl:to-[#00dbd8]"
+			>
+				<SkillListItem
+					iconName="vscode-icons:file-type-godot"
+					since={new Date(2020, 9, 1)}
+					title="Godot"
+					desc="Game Engine"
+				/>
+				<SkillListItem
+					iconName="logos:unity"
+					since={new Date(2019, 2, 1)}
+					title="Unity"
+					desc="Game Engine"
+				/>
+				<SkillListItem
+					iconName="logos:docker-icon"
+					since={new Date(2020, 1, 1)}
+					title="Docker"
+					desc="Containerization Platform"
+				/>
+				<SkillListItem
+					iconName="file-icons:pascal"
+					since={new Date(2020, 2, 1)}
+					title="Pascal"
+					desc="UI, Console-App"
+				/>
+				<SkillListItem
+					iconName="icon-park:github"
+					since={new Date(2018, 10, 1)}
+					title="GitHub"
+					desc="Version Control Platform"
+				/>
+				<SkillListItem
+					iconName="vscode-icons:file-type-gitlab"
+					since={new Date(2022, 5, 1)}
+					title="GitLab"
+					desc="DevOps Platform"
+				/>
+			</SkillListContainer>
+		</div>
+	</main>
+</Layout>

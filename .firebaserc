@@ -1,0 +1,18 @@
+{
+  "projects": {
+    "default": "niklasahlers-defbd"
+  },
+  "targets": {
+    "niklasahlers-defbd": {
+      "hosting": {
+        "niklasahlers-defbd": [
+          "niklasahlers"
+        ],
+        "niklasahlers": [
+          "niklasahlers-defbd"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}
