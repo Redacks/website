@@ -1,0 +1,50 @@
+---
+import i18next from "i18next";
+
+export interface Props {
+	title: string,
+    description: string,
+    keywords: string
+}
+const { title, keywords, description } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang={i18next.language}>
+    <head>
+        <meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+        <meta name="description" content={description} />
+        <meta name="keywords" content={keywords} />
+
+        <link
+			rel="apple-touch-icon"
+			sizes="180x180"
+			href="/apple-touch-icon.png"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="32x32"
+			href="/favicon-32x32.png"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="16x16"
+			href="/favicon-16x16.png"
+		/>
+
+        <link rel="manifest" href="/site.webmanifest" />
+
+        <meta property="og:title" content="Niklas Ahlers | Redacks" />
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="https://www.redacks.com/" />
+		<meta property="og:image" content="https://www.redacks.com/icon.png" />
+    </head>
+	<body>
+		<slot />
+	</body>
+</html>

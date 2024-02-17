@@ -1,5 +1,11 @@
 ---
-import IndexTemplate from "./[lang]/index.astro";
+import i18next, { t } from "i18next";
+import Template from "../template/Template.astro"
+
 ---
 
-<IndexTemplate />
+<Template title={t("index.title")} description={t("index.description")} keywords={t("index.keywords")}>
+	<h1>
+		Hello World!
+	</h1>
+</Template>   
