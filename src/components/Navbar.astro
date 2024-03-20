@@ -1,0 +1,23 @@
+---
+import NavbarItem from "./NavbarItem.astro"
+import { Icon } from 'astro-icon/components'
+---
+
+<div class="navbar bg-base-100 shadow-lg p-4 flex-row justify-between">
+  <h1 class="text-accent flex-1">
+    <a class="p-2 text-3xl cursor-pointer font-default font-extrabold"
+      >Niklas Ahlers</a
+    >
+  </h1>
+  <div>
+    <NavbarItem link="">Home</NavbarItem>
+    <NavbarItem link="">Projekte</NavbarItem>
+    <NavbarItem link="">Skills</NavbarItem>
+    <NavbarItem link="">Impressum</NavbarItem>
+  </div>
+  <div class="flex-1 justify-end">
+    <a class="cursor-pointer" href="https://github.com/Redacks" target="_blank">
+        <Icon name="mdi:github" class="h-[50px] w-[50px] text-accent"/>   
+    </a>
+  </div>
+</div>

@@ -1,5 +1,9 @@
 ---
 import i18next from "i18next";
+import Navbar from "../components/Navbar.astro"
+import '@fontsource-variable/darker-grotesque';
+import '@fontsource-variable/inter';
+import '@fontsource/roboto';
 
 export interface Props {
 	title: string,
@@ -10,7 +14,7 @@ const { title, keywords, description } = Astro.props;
 ---
 
 <!DOCTYPE html>
-<html lang={i18next.language}>
+<html lang={i18next.language} data-theme="mytheme">
     <head>
         <meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
@@ -45,6 +49,7 @@ const { title, keywords, description } = Astro.props;
 		<meta property="og:image" content="https://www.redacks.com/icon.png" />
     </head>
 	<body>
+		<Navbar></Navbar>
 		<slot />
 	</body>
 </html>
