@@ -1,0 +1,36 @@
+---
+import { propsToFilename } from "astro/assets/utils";
+import { Image } from "astro:assets";
+
+export type Props = {
+  title: string;
+  desc: string;
+  buttonText?: string;
+  buttonLink?: string;
+  reverse?: boolean;
+};
+---
+
+<div class="hero">
+  <div
+    class:list={[
+      "hero-content gap-8 flex-col-reverse w-full xl:p-12 md:p-10 p-4",
+      Astro.props.reverse ? "xl:flex-row" : "xl:flex-row-reverse",
+    ]}
+  >
+    <div class="rounded-lg shadow-2xl xl:w-[50%] overflow-hidden">
+      <slot />
+    </div>
+    <div class="flex-1 w-full xl:w-[50%]">
+      <h1 class="text-5xl font-bold">{Astro.props.title}</h1>
+      <p class="py-6">{Astro.props.desc}</p>
+      {
+        Astro.props.buttonText && Astro.props.buttonLink && (
+          <a class="btn btn-primary" href={Astro.props.buttonLink}>
+            {Astro.props.buttonText}
+          </a>
+        )
+      }
+    </div>
+  </div>
+</div>

@@ -1,11 +1,36 @@
 ---
 import i18next, { t } from "i18next";
-import Template from "../template/Template.astro"
+import Template from "../template/Template.astro";
+import CustomHero from "../components/CustomHero.astro";
 
+import SomeImage from "../../public/icon.png";
 ---
 
-<Template title={t("index.title")} description={t("index.description")} keywords={t("index.keywords")}>
-	<h1>
-		Hello World!
-	</h1>
-</Template>   
+<Template
+  title={t("index:title")}
+  description={t("index:desc")}
+  keywords={t("index:keywords")}
+>
+  <CustomHero
+    title={t("index:hero1.title")}
+    desc={t("index:hero1.desc")}
+    buttonText={t("index:hero1.buttonText") ?? undefined}
+    buttonLink="/"
+  >
+    <div class="mockup-code bg-base-200">
+      <pre
+        data-prefix="$"><code class="text-success">cargo</code> <code class="text-warning">new</code> <code>hello_world</code></pre>
+      <pre
+        data-prefix="$"><code class="text-success">cd</code> <code>hello_world</code></pre>
+      <pre
+        data-prefix="$"><code class="text-success">cargo</code> <code class="text-warning">run</code></pre>
+      <pre
+        data-prefix=">"><code class="text-success">  Compiling</code><code> hello_world v0.1.0 (/projects/hello_world)</code></pre>
+      <pre
+        data-prefix=">"><code class="text-success">   Finished</code><code> dev [unoptimized + debuginfo] target(s) in 1.23s</code></pre>
+      <pre
+        data-prefix=">"><code class="text-success">    Running</code><code> `target\debug\hello_world.exe`</code></pre>
+      <pre data-prefix=">"><code>Hello, world!</code></pre>
+    </div>
+  </CustomHero>
+</Template>
